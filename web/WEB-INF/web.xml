@@ -24,6 +24,14 @@
         <servlet-name>register</servlet-name>
         <servlet-class>online.register</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminHome</servlet-name>
+        <servlet-class>online.AdminHome</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudentHome</servlet-name>
+        <servlet-class>online.StudentHome</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AboutUs</servlet-name>
         <url-pattern>/AboutUs</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminHome</servlet-name>
+        <url-pattern>/AdminHome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentHome</servlet-name>
+        <url-pattern>/StudentHome</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

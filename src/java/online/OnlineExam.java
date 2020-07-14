@@ -25,7 +25,7 @@ public class OnlineExam extends HttpServlet {
 "    </head>\n" +
 "    <body>\n" +
 "      <div class='div2'><table cellspacing=0 border='0px' cellpadding='10px'>\n" +
-"          <tr width='1510px' height='40px'><th width='1300px' height='40px'></th><th width='90px' height='40px'><h4>New User?</h4> </th><th width='50px' height='40px'><a href='register.html'>REGISTER</a></th></tr>\n" +
+"          <tr width='1510px' height='40px'><th width='1200px' height='40px'></th><th width='70px' height='40px'><h6>NewUser? <h6></th><th width='50px' height='40px'><a href='register'>REGISTER</a></th></tr>\n" +
 "      </table></div>  \n" +
 "      <div class='div1'><img src='img/img1.png' width='1520px' height='350px'></div>\n" +
 "      <div class='div4'><table width='1520px' height='40px' bgcolor='black'><th width='320px'><marquee class='marquee1'>Welcome to Online Examination System</marquee></th><th width='240px'><a href='OnlineExam'>Home</a></th><th width='240px'><a href='rules'>Rules</a></th><th width='240px'><a href='AboutUS'>AboutUS</a></th><th width='240px'><a href='feed'>Feedback</a></th><th width='240px'><a href='Contact'>ContactUs</a></th></table></div>\n" +
