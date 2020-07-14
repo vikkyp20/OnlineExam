@@ -1,0 +1,110 @@
+ *{
+                margin: 0;
+            
+            }
+            body{
+                width:1520px;
+                height:1220px;
+            }
+            a{
+                text-decoration: none;
+                font-family: Century Gothic;
+                font-size: 16px;
+                color: seashell;
+            }
+            a:hover{
+                color:powderblue;
+            }
+            .div2{
+                
+                width: 1520px;
+                height: 40px;
+                background-color: black;
+                font-family: 'Times New Roman';
+                font-size: 40px;
+                color: red;
+            }
+            h1{
+                color: rgb(78, 30, 30);
+                font-family: Century Gothic;
+                font-size: 30px;
+            }
+            h3{
+                 color: rgb(89, 104, 75);
+                 font-family: Century Gothic;
+                 font-size: 20px;
+            }
+            h4{
+                color: red;
+                
+            }
+            .marquee1{
+                color: seagreen;
+            }
+            .div1{
+                width:1520px;
+                height: 350px;
+            }
+            .div3{
+                width: 350px;
+                height: 710px;
+                float: left;
+            }
+            .div4{
+                width:1520px ;
+                height: 40px;
+
+            }
+            .div5{
+                width: 1170px;
+                height: 710px;
+                float: right;
+            }
+            .div6{
+                width: 1520px;
+                background-color: rgb(8, 54, 54);
+                color: rgb(233, 74, 12);
+                font-family: Century Gothic;
+                font-size: 20px;
+                height: 25px;
+                
+            }
+            .div7{
+                width: 1170px;
+                height: 490px;
+                float: right;     
+            }
+            .img1{
+                width: 1160px;
+                height: 220px;
+                float: center; 
+                border:5px rgb(91, 35, 221);
+            }
+            .input1{
+                 width:330px;
+                height: 50px;
+                font-family: Century Gothic;
+                border: 1px solid grey;
+            }
+            input:focus
+                {
+                background-color: grey;
+                color: white;
+                border:2px solid black;
+                box-shadow:0px 10px 20px grey;
+                transition:0.6s ease;
+                }
+                .input2{
+                width:160px;
+                height: 50px;
+                font-family: Century Gothic;
+                font-size: 20px;
+                color: darkgoldenrod;
+                border: 1px solid grey;
+                }
+                .marquee2{
+                    color: rgb(121, 48, 121);
+                    font-family: Century Gothic;
+                    font-size: 20px;
+                    float: left;
+                }
