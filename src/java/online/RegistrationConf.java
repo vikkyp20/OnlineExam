@@ -1,6 +1,7 @@
 
 package online;
 
+import DB.DBCon;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -9,40 +10,54 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class AdminHome extends HttpServlet {
+public class RegistrationConf extends HttpServlet {
 
-  
+ 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-             out.println("<!DOCTYPE html>");
-            out.println("<html>\n" +
-"    <head>\n" +
-"        <title>Online Examination</title>\n" +
-"        <link rel='stylesheet' type='text/css' href='assets/mystyle.css'>\n" +
-"    </head>\n" +
-"    <body>\n" +
-"      <div class='div2'><table cellspacing=0 border='0px' cellpadding='10px'>\n" +
-"          <tr width='1510px' height='40px'><th width='1300px' height='40px'></th><th width='90px' height='40px'><h5></h5> </th><th width='50px' height='40px'><a href='#'></a></th></tr>\n" +
-"      </table></div>  \n" +
-"      <div class='div1'><img src='img/img1.png' width='1520px' height='350px'></div>\n" +
-"      <div class='div4'><table width='1520px' height='40px' bgcolor='black'>"
-                    + "<th width='112px'><a href='StudentList'>StudentList</a></th>"
-                    + "<th width='114px'><a href='AddQuestion'>AddQuestion</a></th>"
-                    + "<th width='112px'><a href='QuesList'>QuesList</a></th>"
-                    + "<th width='112px'><a href='Result'>Result</a></th>"
-                    + "<th width='112px'><a href='NewsPanel'>NewsPanel</a></th>"
-                    + "<th width='114px'><a href='ViewFeedback'>ViewFeedback</a></th>"
-                    + "<th width='112px'><a href='ChangePswd'>ChangePswd</a></th>"
-                    + "<th width='112px'><a href='Logout'>Logout</a></th>"
-                    + "</table></div>\n" +
-"      <br>\n" +
-"      <div>\n" +
-
-
-"</body>    \n" +
-"</html>");
+      String user=request.getParameter("t1");
+      String pswd=request.getParameter("t2");
+      String name=request.getParameter("t3");
+      String qua=request.getParameter("t4");
+      String dob=request.getParameter("t5");
+      String gen=request.getParameter("gen");
+      String addr=request.getParameter("addr");
+      String city=request.getParameter("city");
+      String state=request.getParameter("state");
+      String pin=request.getParameter("pin");
+      String contact=request.getParameter("cnt");
+      DBCon db=new DBCon();
+      db.pstmt=db.con.prepareStatement("insert into details values(?,?,?,?,?,?,?,?,?,?) ");
+      db.pstmt.setString(1, user);
+      db.pstmt.setString(2, name);
+      db.pstmt.setString(3, qua);
+      db.pstmt.setString(4, dob);
+      db.pstmt.setString(5, gen);
+      db.pstmt.setString(6, addr);
+      db.pstmt.setString(7, city);
+      db.pstmt.setString(8, state);
+      db.pstmt.setString(9, pin);
+      db.pstmt.setString(10, contact);
+      int i1=db.pstmt.executeUpdate();
+      db.pstmt=db.con.prepareStatement("insert into logintable values(?,?,?)");
+      db.pstmt.setString(1, user);
+      db.pstmt.setString(2, pswd);
+      db.pstmt.setString(3, "Member");
+      int i2=db.pstmt.executeUpdate();
+      if(i1>0 && i2>0){
+          out.println("<script>alert('Student Registered Successfully')</script>");
+          response.sendRedirect("OnlineExam?msg=Student Registered Successfully");
+      }
+      else{
+          out.println("<script>alert('Error in Registration')</script>");
+          out.println("<a href=register>Back</a>");
+      }
+      
+        }
+        catch(Exception e){
+            e.printStackTrace();
         }
     }
 

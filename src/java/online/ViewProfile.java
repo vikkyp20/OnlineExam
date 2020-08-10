@@ -1,22 +1,25 @@
 
 package online;
 
+import DB.DBCon;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
-public class StudentHome extends HttpServlet {
+public class ViewProfile extends HttpServlet {
 
-   
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
+           
+           out.println("<!DOCTYPE html>");
             out.println("<html>\n" +
 "    <head>\n" +
 "        <title>Online Examination</title>\n" +
@@ -38,10 +41,41 @@ public class StudentHome extends HttpServlet {
                     + "<th width='150px'><a href='Logout'>Logout</a></th>"
                     + "</table></div>\n" +
 "      <br>\n" +
-"      <div>\n" +
-
-"</body>    \n" +
-"</html>");
+"      <div>\n"+
+"           <center><div style='width:900px;height:450px;'>\n");
+            HttpSession session=request.getSession();
+            String user=session.getAttribute("user").toString();
+            DBCon db=new DBCon();
+            db.pstmt=db.con.prepareStatement("Select * from details where email=?");
+            db.pstmt.setString(1,user);
+            db.rst=db.pstmt.executeQuery();
+            if(db.rst.next())
+            {
+                out.println("<span style='font-size:40px;color:grey;'>Student Profile</span>"
+                        + "<form action='UpdateStu Profile'><table height=450px width=600px>"
+                        + "<tr><td>UserName/Email</td><td>"+db.rst.getString(1)+"</td></tr>"
+                        + "<tr><td>Nmae</td><td>"+db.rst.getString(2)+"</td></tr>"
+                        + "<tr><td>Qualification</td><td>"+db.rst.getString(3)+"</td></tr>"
+                        + "<tr><td>DateofBirth</td><td>"+db.rst.getString(4)+"</td></tr>"
+                        + "<tr><td>Gender</td><td>"+db.rst.getString(5)+"</td></tr>"
+                        + "<tr><td>Address</td><td>"+db.rst.getString(6)+"</td></tr>"
+                        + "<tr><td>City</td><td>"+db.rst.getString(7)+"</td></tr>"
+                        + "<tr><td>State</td><td>"+db.rst.getString(8)+"</td></tr>"
+                        + "<tr><td>Pincode</td><td>"+db.rst.getString(9)+"</td></tr>"
+                        + "<tr><td>Contact</td><td>"+db.rst.getString(10)+"</td></tr>"
+                        + "<tr><td><input type='Button' value='Print'></td><td><input type=submit value=Update></td></tr>"
+                                + "</table></form>");
+                 out.println("</div></center></body>");
+            out.println("</html>");
+            }
+            else{
+                response.sendRedirect("OnlineExam?msg=Please Login First");
+            }
+           
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
         }
     }
 

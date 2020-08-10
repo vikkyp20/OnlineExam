@@ -32,6 +32,42 @@
         <servlet-name>StudentHome</servlet-name>
         <servlet-class>online.StudentHome</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminLogin</servlet-name>
+        <servlet-class>online.AdminLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegistrationConf</servlet-name>
+        <servlet-class>online.RegistrationConf</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StudentList</servlet-name>
+        <servlet-class>online.StudentList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddQuestion</servlet-name>
+        <servlet-class>online.AddQuestion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddConf</servlet-name>
+        <servlet-class>online.AddConf</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>QuesList</servlet-name>
+        <servlet-class>online.QuesList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateQues</servlet-name>
+        <servlet-class>online.UpdateQues</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteQues</servlet-name>
+        <servlet-class>online.DeleteQues</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewProfile</servlet-name>
+        <servlet-class>online.ViewProfile</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AboutUs</servlet-name>
         <url-pattern>/AboutUs</url-pattern>
@@ -63,6 +99,42 @@
     <servlet-mapping>
         <servlet-name>StudentHome</servlet-name>
         <url-pattern>/StudentHome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminLogin</servlet-name>
+        <url-pattern>/AdminLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegistrationConf</servlet-name>
+        <url-pattern>/RegistrationConf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentList</servlet-name>
+        <url-pattern>/StudentList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddQuestion</servlet-name>
+        <url-pattern>/AddQuestion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddConf</servlet-name>
+        <url-pattern>/AddConf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QuesList</servlet-name>
+        <url-pattern>/QuesList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateQues</servlet-name>
+        <url-pattern>/UpdateQues</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteQues</servlet-name>
+        <url-pattern>/DeleteQues</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewProfile</servlet-name>
+        <url-pattern>/ViewProfile</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

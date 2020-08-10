@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class AdminHome extends HttpServlet {
+public class AddQuestion extends HttpServlet {
 
-  
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -38,7 +38,25 @@ public class AdminHome extends HttpServlet {
                     + "<th width='112px'><a href='Logout'>Logout</a></th>"
                     + "</table></div>\n" +
 "      <br>\n" +
-"      <div>\n" +
+"      <div>\n"
+                    + "<div style='height:700px;'><center><h1>Add Question</h1><br>"
+                    + "<form action=AddConf>"
+                    + "<table width='350px' height='600px' border='0'><tr width=250px height=150px><td >"
+                    + "<h3>Question:</h3></td>"
+                    + "<td ><textarea name='t1' ></textarea></td>"
+                    + "</tr>"
+                    + "<tr><td><h3>option1:</h3></td>"
+                    + "<td><input type='text' name=t2></td></tr>"
+                    +"<tr><td><h3>option2:</h3></td>"
+                    + "<td><input type='text' name=t3></td></tr>"
+                    +"<tr><td><h3>option3:</h3></td>"
+                    + "<td><input type='text' name=t4></td></tr>"
+                    +"<tr><td><h3>option4:</h3></td>"
+                    + "<td><input type='text' name=t5></td></tr>"
+                    +"<tr><td><h3>Answer:</h3></td>"
+                    + "<td><input type='text' name=t6></td></tr>"
+                    + "<tr><td><input type=submit value=UploadQuestiion></td></tr>"
+                    + "</table></form></center>" +
 
 
 "</body>    \n" +

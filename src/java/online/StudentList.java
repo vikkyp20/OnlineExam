@@ -1,6 +1,7 @@
 
 package online;
 
+import DB.DBCon;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -9,15 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class AdminHome extends HttpServlet {
+public class StudentList extends HttpServlet {
 
-  
+ 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-             out.println("<!DOCTYPE html>");
-            out.println("<html>\n" +
+          out.println("<html>\n" +
 "    <head>\n" +
 "        <title>Online Examination</title>\n" +
 "        <link rel='stylesheet' type='text/css' href='assets/mystyle.css'>\n" +
@@ -27,7 +27,7 @@ public class AdminHome extends HttpServlet {
 "          <tr width='1510px' height='40px'><th width='1300px' height='40px'></th><th width='90px' height='40px'><h5></h5> </th><th width='50px' height='40px'><a href='#'></a></th></tr>\n" +
 "      </table></div>  \n" +
 "      <div class='div1'><img src='img/img1.png' width='1520px' height='350px'></div>\n" +
-"      <div class='div4'><table width='1520px' height='40px' bgcolor='black'>"
+"      <div class='div4'><table width='1520px' height='40px' bgcolor='black' cellspacing=0 border=1>"
                     + "<th width='112px'><a href='StudentList'>StudentList</a></th>"
                     + "<th width='114px'><a href='AddQuestion'>AddQuestion</a></th>"
                     + "<th width='112px'><a href='QuesList'>QuesList</a></th>"
@@ -38,12 +38,28 @@ public class AdminHome extends HttpServlet {
                     + "<th width='112px'><a href='Logout'>Logout</a></th>"
                     + "</table></div>\n" +
 "      <br>\n" +
-"      <div>\n" +
+"      <div>\n"+
+"      <center><h1>Student List</h1><div style='width:900px;height:700px'><table border=10px><tr bgcolor=yellow><th>E-mail</th><th>Name</th>      "
+                  + "<th>Qualification</th><th>DateOfBirth</th>"
+                  + "<th>Gender</th><th>Address</th>     "
+                  +"<th>City</th><th>State</th><th>Pin</th>"
+                  + "<th>Contact</th></tr>");
+            DBCon db = new DBCon();
+         db.pstmt=db.con.prepareStatement("select * from details");
+         db.rst=db.pstmt.executeQuery();
+         while(db.rst.next())
+         {
+             out.println("<tr><td>"+db.rst.getString(1)+"</td><td>"+db.rst.getString(2)+"</td><td>"+db.rst.getString(3)+"</td><td>"+db.rst.getString(4)+"</td><td>"+db.rst.getString(5)+"</td><td>"+db.rst.getString(6)+"</td><td>"+db.rst.getString(7)+"</td><td>"+db.rst.getString(8)+"</td><td>"+db.rst.getString(9)+"</td><td>"+db.rst.getString(10)+"</td></tr>");
+         }
 
-
-"</body>    \n" +
+out.println("</table></center></body>    \n" +
 "</html>");
         }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

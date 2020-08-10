@@ -1,6 +1,7 @@
 
 package online;
 
+import DB.DBCon;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -9,15 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-public class AdminHome extends HttpServlet {
+public class QuesList extends HttpServlet {
 
   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-             out.println("<!DOCTYPE html>");
-            out.println("<html>\n" +
+           out.println("<html>\n" +
 "    <head>\n" +
 "        <title>Online Examination</title>\n" +
 "        <link rel='stylesheet' type='text/css' href='assets/mystyle.css'>\n" +
@@ -39,10 +39,26 @@ public class AdminHome extends HttpServlet {
                     + "</table></div>\n" +
 "      <br>\n" +
 "      <div>\n" +
+                " <center><h1>Questions List</h1> <div style='width:900px;height:700px'><table  border=10px><tr bgcolor=yellow><th>QuesId</th>      "
+                  + "<th>Question</th><th>option1</th>"
+                  + "<th>option2</th><th>option3</th>     "
+                  +"<th>option4</th><th>Answer</th><th>Action1</th>"
+                  + "<th>Action2</th></tr>");
+            DBCon db = new DBCon();
+         db.pstmt=db.con.prepareStatement("select * from questions");
+         db.rst=db.pstmt.executeQuery();
+         while(db.rst.next())
+         {
+             out.println("<tr><td>"+db.rst.getString(1)+"</td><td>"+db.rst.getString(2)+"</td><td>"+db.rst.getString(3)+"</td><td>"+db.rst.getString(4)+"</td><td>"+db.rst.getString(5)+"</td><td>"+db.rst.getString(6)+"</td><td>"+db.rst.getString(7)+"</td><td><a href=UpdateQues?QuesId="+db.rst.getString(1)+">Update</a></td><td><a href=DeleteQues?QuesId="+db.rst.getString(1)+">Delete</a></td></tr>");
+         }
 
 
-"</body>    \n" +
+out.println("</table></center></body>    \n" +
 "</html>");
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
         }
     }
 

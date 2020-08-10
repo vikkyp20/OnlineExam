@@ -1,6 +1,11 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package online;
 
+import DB.DBCon;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -8,41 +13,55 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *
+ * @author User
+ */
+public class AddConf extends HttpServlet {
 
-public class AdminHome extends HttpServlet {
-
-  
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-             out.println("<!DOCTYPE html>");
-            out.println("<html>\n" +
-"    <head>\n" +
-"        <title>Online Examination</title>\n" +
-"        <link rel='stylesheet' type='text/css' href='assets/mystyle.css'>\n" +
-"    </head>\n" +
-"    <body>\n" +
-"      <div class='div2'><table cellspacing=0 border='0px' cellpadding='10px'>\n" +
-"          <tr width='1510px' height='40px'><th width='1300px' height='40px'></th><th width='90px' height='40px'><h5></h5> </th><th width='50px' height='40px'><a href='#'></a></th></tr>\n" +
-"      </table></div>  \n" +
-"      <div class='div1'><img src='img/img1.png' width='1520px' height='350px'></div>\n" +
-"      <div class='div4'><table width='1520px' height='40px' bgcolor='black'>"
-                    + "<th width='112px'><a href='StudentList'>StudentList</a></th>"
-                    + "<th width='114px'><a href='AddQuestion'>AddQuestion</a></th>"
-                    + "<th width='112px'><a href='QuesList'>QuesList</a></th>"
-                    + "<th width='112px'><a href='Result'>Result</a></th>"
-                    + "<th width='112px'><a href='NewsPanel'>NewsPanel</a></th>"
-                    + "<th width='114px'><a href='ViewFeedback'>ViewFeedback</a></th>"
-                    + "<th width='112px'><a href='ChangePswd'>ChangePswd</a></th>"
-                    + "<th width='112px'><a href='Logout'>Logout</a></th>"
-                    + "</table></div>\n" +
-"      <br>\n" +
-"      <div>\n" +
-
-
-"</body>    \n" +
-"</html>");
+         String ques=request.getParameter("t1");
+      String opt1=request.getParameter("t2");
+      String opt2=request.getParameter("t3");
+      String opt3=request.getParameter("t4");
+      String opt4=request.getParameter("t5");
+      String ans=request.getParameter("t6");
+      DBCon db=new DBCon();
+      db.pstmt=db.con.prepareStatement("insert into  questions(ques,opt1,opt2,opt3,opt4,ans) values(?,?,?,?,?,?) ");
+   
+      db.pstmt.setString(1,ques );
+      db.pstmt.setString(2, opt1);
+      db.pstmt.setString(3, opt2);
+      db.pstmt.setString(4, opt3);
+      db.pstmt.setString(5, opt4);
+      db.pstmt.setString(6, ans);
+      int i1=db.pstmt.executeUpdate();
+       if(i1>0){
+          out.println("<script>alert('Question Entered Successfully')</script>");
+          response.sendRedirect("AddQuestion");
+      }
+      else{
+          out.println("<script>alert('Error in Entertng Question')</script>");
+          out.println("<a href=register>Back</a>");
+        
+        
+    }
+        
+        }
+        catch(Exception e){
+           e.printStackTrace();
         }
     }
 

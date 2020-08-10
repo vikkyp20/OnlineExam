@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package online;
 
 import java.io.IOException;
@@ -12,26 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author User
- */
+
 public class register extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            
             out.println("<!DOCTYPE html>");
             out.println("<Html>\n" +
 "<head>\n" +
@@ -43,7 +28,7 @@ public class register extends HttpServlet {
 "  \n" +
 ".div1{\n" +
 "   width: 600px;\n" +
-"   height: 890px;\n" +
+"   height: 1100px;\n" +
 "   box-shadow:0px 30px 30px rgb(170, 170, 218);\n" +
 "   border: 1px solid grey;\n" +
 "   align-content: initial;\n" +
@@ -104,22 +89,26 @@ public class register extends HttpServlet {
 "</head>\n" +
 "<body>\n" +
 "<center>\n" +
-"<div class='div1'>\n" +
+"<div class='div1'>\n"
+                    + "<form action='RegistrationConf'" +
 "   <table width='600' height='1200' border='0' cellpadding='10'>\n" +
 "      <tr class='v' ><center><h2>REGISTRATION PAGE</h2></center></tr>\n" +
-"      <tr>*UserID</tr>\n" +
-"      <tr><input class='input' type='text' name='t1'></tr>\n" +
-"      <tr>*First Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Middle Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *Last Name</tr>\n" +
-"      <br>\n" +
-"      <tr><input class='input1' type='text' name='t1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class='input1' type='text' name='t1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class='input1' type='text' name='t1'></tr>\n" +
-"      <tr>&nbsp;*E-Mail</tr>\n" +
+"       <tr>*UserID/E-mail</tr>\n" +
 "      <tr><input class='input' type='text' name='t1'></tr>\n" +
 "      <tr>Password</tr>\n" +
-"      <tr><input class='input' type='password' name='t1'></tr>\n" +
-"      <tr>Address</tr>\n" +
-"      <tr><input class='input' type='text' name='t1'></tr>\n" +
-"      <tr>City</tr>\n" +
-"      <tr><input class='input' type='text' name='t1'></tr>\n" +
+"      <tr><input class='input' type='password' name='t2'></tr>\n" +
+"      <tr>StudentName</tr>\n" +
+"      <tr><input class='input' type='text' name='t3'></tr>\n" +
+"      <tr>Qualification</tr>\n" +
+"      <tr><input class='input' type='text' name='t4'></tr>\n" +
+"      <tr>DateOfBirth</tr>\n" +
+"      <tr><input class='input' type='text' name='t5'></tr>\n" +
+"       <tr>Gender</tr>\n" +
+"      <tr><input class='input' type='text' name='gen'></tr>\n" +  
+"       <tr>Address</tr>\n" +
+"      <tr><input class='input' type='text' name='addr'></tr>\n" +  
+ "       <tr>City</tr>\n" +
+"      <tr><input class='input' type='text' name='city'></tr>\n" +  
 "      <tr>State</tr>\n" +
 "      <tr><select name='State'>\n" +
 "         <option value='Uttar Pradesh'>Uttar Pradesh</option>\n" +
@@ -127,16 +116,14 @@ public class register extends HttpServlet {
 "         <option value='Maharastra'>Maharastra</option>\n" +
 "         <option value='Bihar'>Bihar</option>\n" +
 "      </select></tr>\n" +
-"      <tr>ZIP/Portal</tr>\n" +
-"      <tr><input class='input' type='text' name='t1'></tr>\n" +
-"      <tr>Country</tr>\n" +
-"      <tr><input class='input' type='text' name='t1'></tr>\n" +
-"      <tr>Phone</tr>\n" +
-"      <tr><input class='input' type='number' name='t1'></tr>\n" +
+"      <tr>Pin</tr>\n" +
+"      <tr><input class='input' type='text' name='pin'></tr>\n" +
+"      <tr>Contact</tr>\n" +
+"      <tr><input class='input' type='text' name='cnt'></tr>\n" +
 "      <br>\n" +
-"      <br>\n" +
-"      <tr><input class='button' type='button' value='SUBMIT'></tr>\n" +
-"   </table>\n" +
+"      <tr><input class='button' type='submit' value='SUBMIT'></tr>\n" +
+"   </table>\n"
+                    + "</form>" +
 "</div>\n" +
 "</center>\n" +
 "</body>\n" +
