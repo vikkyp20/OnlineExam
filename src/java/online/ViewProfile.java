@@ -65,13 +65,13 @@ public class ViewProfile extends HttpServlet {
                         + "<tr><td>Contact</td><td>"+db.rst.getString(10)+"</td></tr>"
                         + "<tr><td><input type='Button' value='Print'></td><td><input type=submit value=Update></td></tr>"
                                 + "</table></form>");
-                 out.println("</div></center></body>");
-            out.println("</html>");
+                
             }
             else{
                 response.sendRedirect("OnlineExam?msg=Please Login First");
             }
-           
+            out.println("</div></center></body>");
+            out.println("</html>");
         }
         catch(Exception e)
         {
